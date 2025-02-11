@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<title>Operators</title>
+    
+<style>
+
+    body {
+        font-family: "Jost", serif;
+        background-color: black;
+        color: white;
+        margin: auto;
+        padding: auto;
+        text-align: center;
+    }
+    .container {
+        background: black;
+        width: 1000px;
+        border: 3px solid white;
+        border-radius: 3px;
+        padding: 25px;
+        justify-content: center;
+        margin-left: 230px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .btn-show {
+        padding: 5px ;
+        cursor: pointer;
+    }
+
+    .btn-show:hover{
+        background-color: bisque;
+    }
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>If a=35, and b=22, compute for the following:</h1>
+        <p>To see the answers, click the "Reveal Answer" buttons.</p>
+
+        <div class="section">
+        <div class="row">
+            <h2>Arithmetic Operator</h2>
+            <p>a. Exponent</p>
+            <p>b. Modulo</p>
+            <button class="btn btn-light btn-show" onclick="rev_arith()">Reveal Answer</button>
+            <div id="revari"></div>
+    
+
+        <div class="section">
+            <h2>Arthmetic Operator</h2>
+            <p>a. Is a greater than b?</p>
+            <p>b. Is a equal to b?</p>
+            <button class="btn btn-light btn-show" onclick="rev_opera()">Reveal Answer</button>
+            <div id="revope"></div>
+        </div>    
+
+        <div class="section">
+            <h2>Logical Operator</h2>
+            <p>a. (a ≤ b) && (a ≥ b)</p>
+            <p>b. (a ≠ b) || (a == b)</p>
+            <button class="btn btn-light btn-show" onclick="rev_mod()">Reveal Answer</button>
+            <div id="revmodu"></div>
+        </div>   
+    </div>
+    </div>
+    </div>
+
+<script>
+    var a= 35;
+    var b= 22;
+
+    <!---The following script might reference js code from SW2(especially in logical and comparison operators)-->
+
+    function rev_arith() {
+            var exponent = a ** b; <!--tried using (var exponent = Math.pow(a, b)) after googling an alternative for ** but did not work.-->
+            var mod = a % b;
+
+            document.getElementById("revari").innerHTML = 
+                "<p>a. Exponent: " + exponent + "</p>" +
+                "<p>b. Modulo: " + mod + "</p>";
+        }
+    function rev_opera(){
+            var is_Greater= a > b; <!--a will always be greater meaning this will always be true-->
+            var is_Equal= a == b; <!--they will not be equal meaning this will always be false-->
+           
+            document.getElementById("revope").innerHTML = 
+            "<p>a. Is a greater than b? " + is_Greater + "</p>" +
+            "<p>b. Is a equal to b? " + is_Equal + "</p>";
+    }
+
+    function rev_mod(){
+        var logical_and= (a <= b) && (a >= b); <!--This will always be false-->
+        var logical_or= (a != b) || (a == b); <!--This will always be true-->
+       
+        document.getElementById("revmodu").innerHTML = 
+            "<p>a. (a ≤ b) && (a ≥ b): " + logical_and + "</p>" +
+            "<p>b. (a ≠ b) || (a == b): " + logical_or + "</p>";
+    }
+
+</script>
+<p>&copy Zion Fabul</p>
+</body>
+</html>
